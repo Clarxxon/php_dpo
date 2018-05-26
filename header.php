@@ -36,7 +36,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="ad.php">Сделать заказ</a>
+							<a class="nav-link" href="create_request.php">Сделать заказ</a>
 						</li>
 
 						<li class="nav-item">

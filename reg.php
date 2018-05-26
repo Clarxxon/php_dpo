@@ -1,4 +1,3 @@
-
 <?include('header.php');
 include('/database/connection.php');
 /*
