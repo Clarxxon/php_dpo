@@ -1,6 +1,6 @@
 <?
 	try {    
-		$connection = new PDO('mysql:host=localhost;dbname=site;charset=utf8', 'root','');
+		$connection = new PDO('mysql:host=localhost;dbname=dpo;charset=utf8', 'root','');
     }
  
 	 catch (PDOException $e) {

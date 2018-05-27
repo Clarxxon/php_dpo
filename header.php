@@ -36,10 +36,6 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="create_request.php">Сделать заказ</a>
-						</li>
-
-						<li class="nav-item">
 							<a class="nav-link" href="about.php">О компании</a>
 						</li>
 						<li class="nav-item">
@@ -52,7 +48,7 @@
 									<?echo $_SESSION['email_user']?>
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="#">Профиль</a>
+									<a class="dropdown-item" href="profile.php">Профиль</a>
 									<a class="dropdown-item" href="exit.php">Выйти</a>
 								</div>
 							</div>

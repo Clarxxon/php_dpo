@@ -17,7 +17,8 @@ function redTo($value='')
 		{
 			$email_user = $row['email_user'];
             $hash = $row['password'];
-            $id_user= $row['id_user'];
+			$id_user= $row['id_user'];
+			$user_type= $row['user_type'];
             $auth_success=true;
         }
        
@@ -35,18 +36,25 @@ function redTo($value='')
 			}
             
 			$_SESSION['email_user'] = $email_user;
+			$_SESSION['user_type'] = $user_type;
+			$_SESSION['id_user'] = $id_user;
+
 			redTo('../index.php');
 
             /*
-			if($_SESSION['role']  == 'agent')
+			if($_SESSION['user_type']  == '1')
 			{
 				redTo('cabinet_agent.php');
 			}
-			if($_SESSION['role']  == 'customer')
+			if($_SESSION['user_type']  == '2')
 			{
 				redTo('cabinet_customer.php');
-            }
-            */			
+			}
+			if($_SESSION['user_type']  == '3')
+			{
+				redTo('cabinet_customer.php');
+			}
+            	*/
 		}
 		else
 		{

@@ -6,7 +6,7 @@ $last_name=$_POST['last_name'];
 $email=$_POST['email'];
 $password=$_POST['password'];
 $password_confirm=$_POST['password-confirmation'];
-
+$user_type = $_POST['user_type'];
 
 
 if($password!=$password_confirm){
@@ -15,7 +15,7 @@ if($password!=$password_confirm){
 	if($name and $email and $password){
 		$dbpassword=$password;
 		$dbpassword = password_hash($password, PASSWORD_DEFAULT);
-		$q = "INSERT INTO user_ (`name_user`, `last_name_user`, `email_user`, `password`) VALUES ('$name', '$last_name', '$email', '$dbpassword')";
+		$q = "INSERT INTO user_ (`name_user`, `last_name_user`, `email_user`, `password`,`user_type`) VALUES ('$name', '$last_name', '$email', '$dbpassword','$user_type')";
 
 		
 		if ($connection->exec($q)) {

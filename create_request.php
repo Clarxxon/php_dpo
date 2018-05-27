@@ -1,30 +1,55 @@
 <?include('header.php');
 include('/database/connection.php');
+
+$pices=$_POST['prices'];
+print_r($prices);
+
+
 ?>
 
 	<div class="container-fluid">
 
-        <form>
-            <div class="form-group">
+        <form method="POST" action="request_confirm.php">
+            <!-- div class="form-group">
                 <label for="exampleFormControlInput1">Телефон для связи</label>
                 <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="+7 999 222-22-22">
                 <small>*пожалуйста, укажите свой мобильный телефон, чтобы мы могли вам перезвонить и уточнить детали заказа)</small>
-            </div>
+            </div -->
            
 
             <div class="form-group">
                 <label for="exampleFormControlSelect2">Выберите услуги</label>
-                <select multiple class="form-control" id="exampleFormControlSelect2">
+                <select class="form-control" id="exampleFormControlSelect2" name="prices">
                 <?$sql = 'SELECT * FROM price_list';
 
 
                 foreach($connection->query($sql) as $key=>$row) 
                 {
-                    echo '<option>'.$row['service_name'].'</option>';
+                    echo '<option value='.$row['service_cost'].'>'.$row['service_name'].'</option>';
                 }
+
+                ?>
+                </select>
+                <label for="exampleFormControlSelect3">Выберите партнёрскую программу</label>
+                <select class="form-control" id="exampleFormControlSelect3" name="program">
+                <?$sql = 'SELECT * FROM partner_program';
+
+
+                foreach($connection->query($sql) as $key=>$row) 
+                {
+                    echo '<option value='.$row['program_id'].'>'.$row['program_info'].'</option>';
+                }
+
                 ?>
                 </select>
             </div>
+
+            <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Сделать заказ</button>
+            </div>
+        </div>
         </form>
     </div>
 

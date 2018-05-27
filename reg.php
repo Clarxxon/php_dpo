@@ -153,6 +153,26 @@ if ($_POST['entryReg']) {
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="user_type">Кто вы?</label>
+            </div>
+           
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <select class="custom-select" name="user_type" id="user_type">
+                            <option value="1">Заказчик</option>
+                            <option value="2">Оператор</option>
+                            <option value="3">Партнёр</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
