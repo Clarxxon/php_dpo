@@ -129,10 +129,22 @@
     </div>
 
     <div class="list-group">
+    <?php
 
-        <a href="#" class="list-group-item list-group-item-action">в процессе</a>
-       
-        <a href="#" class="list-group-item list-group-item-action list-group-item-success">Заказ выполнен</a>
+    $sql = 'SELECT * FROM reques WHERE reques.id_user='.$_SESSION['id_user'];
+
+
+    foreach($connection->query($sql) as $key=>$row) {?>
+
+        <? if ($row['request_state']=='новый'):?>
+            <a href="#" class="list-group-item list-group-item-action"><?=$row['request_number']?></a>
+        <? endif;?>
+
+        <? if ($row['request_state']=='готов'):?>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-success">Заказ выполнен</a>
+        <? endif;?>
+
+    <?}?>
         
     </div>
 

@@ -10,10 +10,14 @@ $program=$_POST['program'];
         <?if(!$price) echo "Выберите услугу!";
         else{
             $id_user=$_SESSION['id_user'];
-            $request_date=time();
+            $request_date=date('Y-m-d H:i:s');
             $request_cost=$price;
             $request_state="новый";
             $program_id=$program;
+
+            $q = "INSERT INTO `reques`(`id_user`, `program_id`, `request_date`, `request_cost`, `request_state`) VALUES ( $id_user, '$program_id', '$request_date','$request_cost','$request_state')";
+            $connection->exec($q);
+            echo "Заказ создан!";
         }
         
         ?>

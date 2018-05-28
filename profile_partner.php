@@ -215,7 +215,7 @@
                         <d class="card-body">
                         <h5 class="card-title"><?=$row['partner_name'];?></h5>
                         <p class="card-text"><?=$row['partner_info'];?></p>
-                        <p class="card-text"><small class="text-muted"><a href="">добавить программу сотрудничества</a></small></p>
+                        <p class="card-text"><small class="text-muted"><a href="add_partner_program.php?partner_id=<?=$row['partner_id']?>">Добавить программу сотрудничества</a></small></p>
                     </div><br/>
                     
                 <?}?>

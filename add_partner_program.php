@@ -5,19 +5,19 @@
         echo "<script> window.location.replace('$value'); </script>";
     }
 
-    //add partner
-    $partner_name=$_POST['partner_name'];
-    $partner_info=$_POST['partner_info'];
-    $partner_youtube=$_POST['partner_youtube'];
+    $partner_id = $_GET['partner_id'];
+ 
+    $program_info=$_POST['program_info'];
+    $program_time=$_POST['program_time'];
+   
 
     $id_user=$_SESSION['id_user'];
 
-    $q="INSERT INTO `partner`(`id_user`, `partner_name`, `partner_info`, `partner_youtube`) VALUES ($id_user, '$partner_name', '$partner_info', '$partner_youtube')";
+    $q="INSERT INTO `partner_program`(`partner_id`, `program_time`, `program_info`) VALUES ( $partner_id, '$program_time', '$program_info')";
 
-    if($partner_info && $partner_name && $partner_youtube){
+    if($program_info && $program_time && $partner_id){
         $connection->exec($q);
     }
-
 ?>
 
 	<div class="container-fluid">
@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h2>программы сотрудничества</h2>
+                <h2>Программы сотрудничества</h2>
                 <hr>
             </div>
         </div>
@@ -41,7 +41,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                             <input type="number" name="program_time" class="form-control" id="name"
-                                placeholder="John" required autofocus>
+                                placeholder="1" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                             <input type="text" name="program_info" class="form-control" id="last_name"
-                                placeholder="Doe" required autofocus>
+                                placeholder="каковы ваши условия?" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Создать бренд</button>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i>Добавить программу</button>
                 </div>
             </div>
         </form>

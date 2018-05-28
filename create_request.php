@@ -1,7 +1,6 @@
 <?include('header.php');
 include('/database/connection.php');
 
-$pices=$_POST['prices'];
 print_r($prices);
 
 
@@ -32,12 +31,12 @@ print_r($prices);
                 </select>
                 <label for="exampleFormControlSelect3">Выберите партнёрскую программу</label>
                 <select class="form-control" id="exampleFormControlSelect3" name="program">
-                <?$sql = 'SELECT * FROM partner_program';
+                <?$sql = 'SELECT * FROM partner_program INNER JOIN partner ON partner.partner_id=partner_program.partner_id';
 
 
                 foreach($connection->query($sql) as $key=>$row) 
                 {
-                    echo '<option value='.$row['program_id'].'>'.$row['program_info'].'</option>';
+                    echo '<option value='.$row['program_id'].'>'.$row['program_info'].' - '.$row['partner_name'].'</option>';
                 }
 
                 ?>
