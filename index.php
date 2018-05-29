@@ -1,94 +1,60 @@
 <? include ('header.php');?>
-
+<style>
+.carousel-item  {
+  width:100%;
+  height:460px;
+}
+.carousel-item .img-fluid {
+  width: 100%;
+    height: auto;
+    position: absolute;
+    top: -80px;
+}
+ 
+</style>
 <div class="container-fluid">
-	
-</div>
-
 <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Все возможности нашей студии</h1>
           <p class="lead text-muted">Мы можем сделать для вас видео любой сложности, обработать его, создать рекламную кампанию по Вашему заказу и многое-многое другое!</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Написать нам</a>
-          </p>
         </div>
       </section>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-            <div class="col-md-4">
-
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="http://uks-km.ru/wp-content/uploads/2014/01/cabletv.jpg" data-holder-rendered="true">
-                <div class="card-body">
-                  <p class="card-text">Список каналов</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="http://wttt.ru/images/203.jpg" data-holder-rendered="true">
-                <div class="card-body">
-                  <p class="card-text">Возможность узнать о нашей компании и о том, какую работу мы проделываем для Вас.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="http://www.inci.ru/assets/images/pagestatic/kontaktiy-tehnoshtuchki.jpg" data-holder-rendered="true">
-                <div class="card-body">
-                  <p class="card-text">У вас есть возможность узнать наше месторасположение, номера телефонов, электронной почты, а так же возможность получить от нас звонок за наш счет.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-md-4">
-
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="https://www.fire-service.ru/img/off/price.jpg" data-holder-rendered="true">
-                <div class="card-body">
-                  <p class="card-text">А также Вы можете ознакомиться со стоимостью наших услуг.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-    
+     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Сотрудничество с русскими блогерами</h1>
+            <p>мы сотрудничаем со всеми известными русскими блогерами!</p>
           </div>
+          <img class="d-block img-fluid" src="1.png" alt="First slide">
+        </div>
+        <div class="carousel-item">
+        <div class="carousel-caption d-none d-md-block">
+            <h1>Сотрудничество с зарубежными блогерами</h1>
+            <p>мы сотрудничаем со всеми известными зарубежными блогерами!</p>
+          </div>
+          <img class="d-block img-fluid" src="2.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+        <div class="carousel-caption d-none d-md-block">
+            <h1>Професиональная команда</h1>
+            <p>Наша команда располагает профессионаьным оборудованием и программным обеспечением. Но, самое важное, большим опытом!</p>
+          </div>
+          <img class="d-block img-fluid" src="3.jpg" alt="Third slide">
         </div>
       </div>
-			
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</div>
+
+
+
 <? include ('footer.php')?>

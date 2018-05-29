@@ -19,8 +19,7 @@ include('/database/connection.php');
                         <d class="card-body">
                         <h5 class="card-title"><?=$row['partner_name'];?></h5>
                         <p class="card-text"><?=$row['partner_info'];?></p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </d iv>
+                    </div>
                     
 
                 <?}?>

@@ -38,9 +38,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="about.php">О компании</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contacts.php">Контакты</a>
-						</li>
+						
 						<?if(isset($_SESSION['email_user'])){?>
 							
 							<div class="dropdown">
