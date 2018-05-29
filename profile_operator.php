@@ -216,6 +216,28 @@
 
     </div> 
 
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2>Мои видео</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="list-group">
+            <?php
+                $id_user=$_SESSION['id_user'];
+                $sql = "SELECT * FROM `video` WHERE video.operator_id=$id_user";
+
+                foreach($connection->query($sql) as $key=>$row) {?>
+
+                    <a href="video_redact.php?video_id=<?=$row['video_id']?>&request_number=<?=$row['video_id']?>" class="list-group-item list-group-item-action"><?=$row['video_name']?>  <?=$row['video_genre']?>
+                    <span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                
+                <?}?>
+        </div>
+
+    </div>
 
 
  <? include('footer.php')?>
