@@ -5,6 +5,14 @@
         echo "<script> window.location.replace('$value'); </script>";
     }
 
+    $id_user=$_SESSION['id_user'];
+    // get user data
+    $q="SELECT * FROM user_ WHERE id_user=$id_user";
+    $row=$connection->query($q)->fetch(PDO::FETCH_LAZY);
+    $name_user=$row['name_user'];
+    $last_name_user=$row['last_name_user'];
+    $user_adres=$row['user_adres'];
+
     //add partner
     /*$partner_name=$_POST['partner_name'];
     $partner_info=$_POST['partner_info'];
@@ -22,7 +30,7 @@
 
 	<div class="container-fluid">
 
-        <form class="form-horizontal" role="form" method="POST" action="/user_action/register.php">
+        <form class="form-horizontal" role="form" method="POST" action="redact_user_profile.php">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -39,7 +47,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                             <input type="text" name="name" class="form-control" id="name"
-                                placeholder="John" required autofocus>
+                                placeholder="John" required autofocus value="<?=$name_user?>">
                         </div>
                     </div>
                 </div>
@@ -60,7 +68,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                             <input type="text" name="last_name" class="form-control" id="last_name"
-                                placeholder="Doe" required autofocus>
+                                placeholder="Doe" required autofocus  value="<?=$last_name_user?>">
                         </div>
                     </div>
                 </div>
@@ -74,27 +82,6 @@
             </div>
             <div class="row">
                 <div class="col-md-3 field-label-responsive">
-                    <label for="email">E-Mail</label>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            <input type="text" name="email" class="form-control" id="email"
-                                placeholder="you@example.com" required autofocus>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-control-feedback">
-                            <span class="text-danger align-middle">
-                                <!-- Put e-mail validation error messages here -->
-                            </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 field-label-responsive">
                     <label for="adres">Адрес</label>
                 </div>
                 <div class="col-md-6">
@@ -102,7 +89,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
                             <input type="text" name="user_adres" class="form-control" id="adres"
-                                placeholder="Москва, ул.Московская, 32" required>
+                                placeholder="Москва, ул.Московская, 32" required  value="<?=$user_adres?>">
                         </div>
                     </div>
                 </div>
@@ -116,17 +103,16 @@
             </div>
         </form>
 
-    
 
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <h2>Доступные заказы</h2>
-            <hr>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Доступные заказы</h2>
+                <hr>
+            </div>
         </div>
-    </div>
 
-    <p class="card-text"><a href="add_video.php">Добавить видео</a></p>
+        <p class="card-text"><a href="add_video.php">Добавить видео</a></p>
 
     <!--   <form class="form-horizontal" role="form" method="POST" action="">
            
@@ -202,7 +188,7 @@
             </div>
         </form>
     -->
-    <div class="list-group">
+        <div class="list-group">
             <?php
 
                 $sql = "SELECT * FROM `reques` WHERE reques.request_state='новый'";
@@ -211,7 +197,7 @@
 
                     <a href="#" class="list-group-item list-group-item-action">Заказ номер <?=$row['request_number']?>  на <?=$row['request_cost']?> рублей</a>
                 
-                <?}?>
+            <?}?>
         </div>
 
     </div> 
