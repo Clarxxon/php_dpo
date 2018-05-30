@@ -8,7 +8,7 @@
     //get video
     $video_id=$_GET['video_id'];
     $request_number=$_GET['request_number'];
-
+   // echo $request_number;
 
 
     $q="SELECT * FROM video INNER JOIN reques WHERE video.video_id=$video_id and video.request_number=reques.request_number";
@@ -22,7 +22,7 @@
         $video_description=$row['video_description'];
         $request_state=$row['request_state'];
         $video_id=$row['video_id'];
-        
+
 ?>
 
 	<div class="container-fluid">
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h2>Мои видео</h2>
+            <h2>Редактирование видео/заказа</h2>
             <hr>
         </div>
     </div>
@@ -153,6 +153,30 @@
                */ ?>
         </select>
 -->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h2>Подробности выполняемого Вами заказа</h2>
+                    <hr>
+                </div>
+            </div>
+
+                <div class="list-group">
+                    <?php
+
+                        $sql = "SELECT * FROM reques INNER JOIN price_list WHERE price_list.service_id=reques.service_id and reques.request_number=$request_number";
+                        //echo $sql;
+                        $row=$connection->query($sql)->fetch(PDO::FETCH_LAZY);
+                        //print_r($row);
+                    ?>
+                    <a href="#" class="list-group-item list-group-item-action">Заказ номер <?=$row['request_number']?>  на <?=$row['request_cost']?> рублей <br/> Требуется: <?=$row['service_name']?></a>
+                        
+                    
+                </div>
+
+            </div> 
+
+            
            
             <div class="row">
                 <div class="col-md-3"></div>
@@ -163,9 +187,6 @@
             </div>
            
         </form>
-
-        
-
     </div>
 
 

@@ -1,10 +1,15 @@
 <?include('header.php');
 include('/database/connection.php');
 
-$price=$_POST['prices'];
+$service_id=$_POST['prices'];
 $program=$_POST['program'];
-?>
 
+$q="SELECT * FROM price_list WHERE service_id=$service_id";
+
+$row=$connection->query($q)->fetch(PDO::FETCH_LAZY);
+$price = $row['service_cost'];
+
+?>
 	<div class="container-fluid">
     
         <?if(!$price) echo "Выберите услугу!";
@@ -15,16 +20,13 @@ $program=$_POST['program'];
             $request_state="новый";
             $program_id=$program;
 
-            $q = "INSERT INTO `reques`(`id_user`, `program_id`, `request_date`, `request_cost`, `request_state`) VALUES ( $id_user, '$program_id', '$request_date','$request_cost','$request_state')";
+            $q = "INSERT INTO `reques`(`id_user`, `program_id`, `request_date`, `request_cost`, `request_state`, `service_id`) VALUES ( $id_user, '$program_id', '$request_date','$request_cost','$request_state', '$service_id')";
             $connection->exec($q);
             echo "Заказ создан!";
         }
         
         ?>
     </div>
-
-
-
 
  <? include('footer.php')?>
 		

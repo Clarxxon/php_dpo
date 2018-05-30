@@ -129,6 +129,10 @@
             <a href="#" class="list-group-item list-group-item-action">Заказ №<?=$row['request_number']?> сроком действия рекламы на <?=$row['program_time']?> месяцев ожидает выполнения</a>
         <? endif;?>
 
+        <? if ($row['request_state']=='выполняется'):?>
+            <a href="#" class="list-group-item list-group-item-warning">Заказ №<?=$row['request_number']?> сроком действия рекламы на <?=$row['program_time']?> месяцев выполняется</a>
+        <? endif;?>
+
         <? if ($row['request_state']=='готов'):?>
             <a href="#" class="list-group-item list-group-item-action list-group-item-success">Заказ №<?=$row['request_number']?> выполнен</a>
         <? endif;?>

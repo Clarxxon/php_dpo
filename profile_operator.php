@@ -191,11 +191,11 @@
         <div class="list-group">
             <?php
 
-                $sql = "SELECT * FROM `reques` WHERE reques.request_state='новый'";
+                $sql = "SELECT * FROM `reques` INNER JOIN price_list WHERE price_list.service_id=reques.service_id and reques.request_state='новый'";
 
                 foreach($connection->query($sql) as $key=>$row) {?>
 
-                    <a href="#" class="list-group-item list-group-item-action">Заказ номер <?=$row['request_number']?>  на <?=$row['request_cost']?> рублей</a>
+                    <a href="#" class="list-group-item list-group-item-action">Заказ номер <?=$row['request_number']?>  на <?=$row['request_cost']?> рублей <br/> Требуется: <?=$row['service_name']?></a>
                 
             <?}?>
         </div>
@@ -216,7 +216,7 @@
 
                 foreach($connection->query($sql) as $key=>$row) {?>
 
-                    <a href="video_redact.php?video_id=<?=$row['video_id']?>&request_number=<?=$row['video_id']?>" class="list-group-item list-group-item-action"><?=$row['video_name']?>  <?=$row['video_genre']?>
+                    <a href="video_redact.php?video_id=<?=$row['video_id']?>&request_number=<?=$row['request_number']?>" class="list-group-item list-group-item-action"><?=$row['video_name']?>  <?=$row['video_genre']?>
                     <span class="glyphicon glyphicon-cog"></span>
                     </a>
                 

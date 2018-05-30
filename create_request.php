@@ -1,9 +1,6 @@
 <?include('header.php');
 include('/database/connection.php');
 
-print_r($prices);
-
-
 ?>
 
 	<div class="container-fluid">
@@ -24,7 +21,7 @@ print_r($prices);
 
                 foreach($connection->query($sql) as $key=>$row) 
                 {
-                    echo '<option value='.$row['service_cost'].'>'.$row['service_name'].'</option>';
+                    echo '<option value='.$row['service_id'].'>'.$row['service_name'].'</option>';
                 }
 
                 ?>
