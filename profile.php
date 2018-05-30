@@ -14,11 +14,21 @@
     {
         redTo('profile_partner.php');
     }
+
+    $id_user=$_SESSION['id_user'];
+
+    // get user data
+    $q="SELECT * FROM user_ WHERE id_user=$id_user";
+    $row=$connection->query($q)->fetch(PDO::FETCH_LAZY);
+    $name_user=$row['name_user'];
+    $last_name_user=$row['last_name_user'];
+    $user_adres=$row['user_adres'];
+
 ?>
 
 	<div class="container-fluid">
 
-        <form class="form-horizontal" role="form" method="POST" action="/user_action/register.php">
+        <form class="form-horizontal" role="form" method="POST" action="redact_user_profile.php">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -35,7 +45,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                             <input type="text" name="name" class="form-control" id="name"
-                                placeholder="John" required autofocus>
+                                placeholder="John" required autofocus value="<?=$name_user?>">
                         </div>
                     </div>
                 </div>
@@ -56,7 +66,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                             <input type="text" name="last_name" class="form-control" id="last_name"
-                                placeholder="Doe" required autofocus>
+                                placeholder="Doe" required autofocus  value="<?=$last_name_user?>">
                         </div>
                     </div>
                 </div>
@@ -70,27 +80,6 @@
             </div>
             <div class="row">
                 <div class="col-md-3 field-label-responsive">
-                    <label for="email">E-Mail</label>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            <input type="text" name="email" class="form-control" id="email"
-                                placeholder="you@example.com" required autofocus>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-control-feedback">
-                            <span class="text-danger align-middle">
-                                <!-- Put e-mail validation error messages here -->
-                            </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 field-label-responsive">
                     <label for="adres">Адрес</label>
                 </div>
                 <div class="col-md-6">
@@ -98,7 +87,7 @@
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
                             <input type="text" name="user_adres" class="form-control" id="adres"
-                                placeholder="Москва, ул.Московская, 32" required>
+                                placeholder="Москва, ул.Московская, 32" required  value="<?=$user_adres?>">
                         </div>
                     </div>
                 </div>
